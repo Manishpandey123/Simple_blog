@@ -1,13 +1,39 @@
-<header class="container"><h1> My Blog</h1></header> <br/>
 
-<% @post.all.each do |post|%>
-        
-    <strong>Title : </strong><%= post.title%><br />  
-    <strong>Body : </strong><%= post.body%>   
-    <%= link_to "Edit Post", edit_post_path(post) %> 
-    <%= link_to "Destroy", post_path(post), method: :delete, data: {confirm: "Are you sure?"} %> 
-    <%= link_to "Show", post_path(post) %> <br /><br />
-        
-<% end %>  
+<section class="navv">
+   <h1 class="navv-title">Idea Blog</h1>
+</section>
 
-<%= link_to "New Post", new_post_path %>
+
+<section class="banner">
+    <div class="container">
+        <% @posts.each do |post|%>
+            <div class="card" style="background-image: url(<%= image_url '12.jpg' %>)">
+                <div class="media">
+                    <h3><%= link_to post.title, post, {:class => "css_class"}%></h3>
+                    <div class="image-name">
+                        <div class="image">
+                            <%if post.profile_image.attached? %>
+                                <%= image_tag post.profile_image, { :class => "image_class"} %>
+                            <% end%>
+                        </div>
+                        <div class="name">
+                            <%= post.name %>
+                        </div>
+                        <div class="icon-wrapper">
+                            <i class="fas fa-book-reader fa-2x"></i>
+                            <%= post.updated_at%>
+                        </div>
+                        <div class="icon-wrapper">
+                            <i class="fas fa-calendar-minus fa-2x" ></i>
+                            <%= post.created_at%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <%= post.summary%>
+                <%= link_to "See More...", post ,{:class => "css_summary"}%>
+            </div>
+        <% end %>  
+    </div>
+</section>

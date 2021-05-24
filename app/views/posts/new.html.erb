@@ -1,9 +1,43 @@
-<h1>New Post</h1>
 
+    <% content_for :page_title, "New Blog"%>
+
+
+<div class="container">
 <%= form_for @post do |f| %>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %><br />
-    <%= f.label :body %><br />
-    <%= f.text_area :body %><br />
-    <%= f.submit %><br />
+    <div class="form-name">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, class: "form-control" %><br />
+    </div>
+    <div class="form-title">
+        <%= f.label :title %>
+        <%= f.text_field :title, autofocus: true, class: "form-control" %><br/>
+    </div>
+    <div class="form-body">
+        <%= f.label :body %>
+        <%= f.rich_text_area :body, autofocus: true, class: "form-control" %><br />
+    </div>
+    <div class="form-image">
+        <%= f.label :profile_image %>
+        <%= f.file_field :profile_image, autofocus: true, class: "form-control-image" %><br /><br />
+    </div>
+    <div class="form-facebook">
+        <%= f.label :facebook %>
+        <%= f.text_field :facebook, autofocus: true, class: "form-control" %><br />
+    </div>
+    <div class="form-twitter">
+        <%= f.label :twitter %>
+        <%= f.text_field :twitter, autofocus: true, class: "form-control" %><br />
+    </div>
+    <div class="form-linkedin">
+        <%= f.label :linkedin %>
+        <%= f.text_field :linkedin, autofocus: true, class: "form-control" %><br />
+    </div>
+    <div class="form-summary">
+        <%= f.label :summary %>
+        <%= f.text_field :summary, autofocus: true, class: "form-control" %><br />
+    </div>
+    <div class="actions">
+        <%= f.submit "Create Blog", class: "btn btn-primary" %><br />
+    </div>
 <% end %>
+</div>

@@ -1,4 +1,26 @@
-<p>
-    <strong>Title :</strong><%= @post.title %><br />
-    <strong>Body :</strong><%= @post.body %>
-</p>
+<section class="top" style="background-image: url(<%= image_url '12.jpg' %>)">
+    <div class="show-top">
+        <%= image_tag @post.profile_image, {:class => "show_class"}  %>
+            <%= @post.name%><br />
+            <div class="icons">
+                <a href="<%= @post.twitter%>" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="<%= @post.linkedin%>" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="<%= @post.facebook%>" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+            <div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="card">
+            <h2 class="show-title"><%= @post.title%></h2>
+             <div class="body">
+                <%= @post.body%>
+            </div>    
+            <div>
+                <button type="button" class="btn btn-light btn-outline-info" style="float: right";><%= link_to "Edit Post", edit_post_path(@post) %> </button>
+                <button type="button" class="btn btn-light btn-outline-danger" style="float: right";><%= link_to "Destroy", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %></button> 
+            </div>
+        </div>
+    </div>
+</section>
